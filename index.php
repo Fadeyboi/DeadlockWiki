@@ -18,7 +18,7 @@
   <?php include './includes/indexHeader.php'; ?>
   <div id="main">
     <div>
-      <div id="section">
+      <div class="section">
         <h2>What is Deadlock?</h2>
         <p>
           <em>Deadlock</em> is an upcoming action game developed and published by
@@ -31,19 +31,19 @@
     </div>
 
     <div>
-      <div id="section">
+      <div class="section">
         <h2>Gameplay</h2>
         <div class="content-wrapper">
           <p>
-            Deadlock is a 6v6 MOBA third-person shooter. It will be Valve's first true third-person shooter, save for the top-down Alien Swarm, which was begun by an outside team.
+            Deadlock is a 6v6 MOBA third-person shooter. It will be Valve's first true third-person shooter, save for the top-down Alien Swarm, which was begun by an outsclasse team.
             Players control powerful hero characters and escort NPCs down several "lanes" in order to destroy the enemy team's stationary defenses.
             This makes the moment-to-moment gameplay highly similar to MOBAs. If the enemy's defenses are destroyed, it reveals their "Patron", a tremendous magically animated golem that must be defeated to win the match.
             Players can unlock various skills and abilities for their hero, as well as use ziplines to navigate the arena. The game currently has 21 different heroes, though it is unclear what, if any, lore or backstory about them exists beyond their names and descriptions.
             The game takes place in an alternate version of New York City called the Cursed Apple, which mixes elements of 1930s Prohibition-era storytelling and the occult.
           </p>
-          <div id="figure">
+          <div class="figure">
             <img src="../images/map.png" alt="Map of the game" />
-            <div id="figcaption">Image of the minimap</div>
+            <div class="figcaption">Image of the minimap</div>
           </div>
         </div>
         <blockquote cite="https://www.videogamer.com/news/valve-finally-unveils-deadlock-on-steam-access-is-still-limited-to-friend-invite-via-playtesters/">
@@ -55,16 +55,16 @@
     </div>
 
     <div>
-      <div id="section">
+      <div class="section">
         <h2>Reception</h2>
         <div>
           <p>
             Deadlock reached a peak player base of around 41,000 in August 2024, days before the game was even announced.
             After the official announcement, the game reached yet another peak of 171,000 on September 2024.
           </p>
-          <div id="figure">
+          <div class="figure">
             <img src="../images/reception.png" alt="Steamcharts reception graph" />
-            <div id="figcaption">Image of the steamcharts</div>
+            <div class="figcaption">Image of the steamcharts</div>
           </div>
         </div>
       </div>

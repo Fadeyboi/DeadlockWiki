@@ -85,7 +85,7 @@ h1 {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-#section {
+.section {
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -148,7 +148,7 @@ a:hover {
     flex: 1;
 }
 
-.content-wrapper #figure {
+.content-wrapper .figure {
     flex-shrink: 0;
     max-width: 300px;
     text-align: center;
@@ -159,7 +159,7 @@ a:hover {
     height: auto;
 }
 
-#figcaption {
+.figcaption {
     font-size: 14px;
     color: #666;
     margin-top: 8px;
