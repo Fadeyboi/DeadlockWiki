@@ -49,8 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p style='color:red;'>This email has already been used to submit a review.</p>";
     } else {
         // Insert the review
-        $stmt = $conn->prepare("INSERT INTO reviews (hero_id, name, email, age, rating, recommend, difficult, gender, server, feedback) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isssisssss", $hero_id, $name, $email, $age, $rating, $recommend, $difficult, $gender, $server, $feedback);
+        $stmt = $conn->prepare("INSERT INTO reviews (hero_id, favorite_hero, name, email, age, rating, recommend, difficult, gender, server, feedback) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isssissssss", $hero_id, $favorite_hero, $name, $email, $age, $rating, $recommend, $difficult, $gender, $server, $feedback);
+
 
         if ($stmt->execute()) {
             echo "<p style='color:green;'>Thank you for your review!</p>";
