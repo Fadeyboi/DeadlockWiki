@@ -1,4 +1,6 @@
 <?php
+$message = ""; // Initialize an empty message variable
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "mysql.railway.internal";
     $username = "root";
@@ -23,40 +25,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $feedback = htmlspecialchars($_POST['feedback'], ENT_QUOTES, 'UTF-8');
 
     if (!$name || !$email || !$age || !$favorite_hero || !$rating || !$gender || !$server || !$feedback) {
-        echo "<p style='color:red;'>Invalid input. Please check your entries and try again.</p>";
-        exit;
-    }
-
-    // Use prepared statements to fetch hero_id
-    $stmt = $conn->prepare("SELECT id FROM heroes WHERE LOWER(name) = LOWER(?)");
-    $stmt->bind_param("s", $favorite_hero);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $hero_id = $result->num_rows > 0 ? $result->fetch_assoc()['id'] : null;
-
-    if (!$hero_id) {
-        echo "<p style='color:red;'>Hero not found. Please try again.</p>";
-        exit;
-    }
-
-    // Check for duplicate email
-    $stmt = $conn->prepare("SELECT email FROM reviews WHERE email = ?");
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    if ($result->num_rows > 0) {
-        echo "<p style='color:red;'>This email has already been used to submit a review.</p>";
+        $message = "<p style='color:red;'>Invalid input. Please check your entries and try again.</p>";
     } else {
-        // Insert the review
-        $stmt = $conn->prepare("INSERT INTO reviews (hero_id, favorite_hero, name, email, age, rating, recommend, difficult, gender, server, feedback) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("isssissssss", $hero_id, $favorite_hero, $name, $email, $age, $rating, $recommend, $difficult, $gender, $server, $feedback);
+        // Use prepared statements to fetch hero_id
+        $stmt = $conn->prepare("SELECT id FROM heroes WHERE LOWER(name) = LOWER(?)");
+        $stmt->bind_param("s", $favorite_hero);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $hero_id = $result->num_rows > 0 ? $result->fetch_assoc()['id'] : null;
 
-
-        if ($stmt->execute()) {
-            echo "<p style='color:green;'>Thank you for your review!</p>";
+        if (!$hero_id) {
+            $message = "<p style='color:red;'>Hero not found. Please try again.</p>";
         } else {
-            echo "<p>Error: Unable to submit your review. Please try again later.</p>";
+            // Check for duplicate email
+            $stmt = $conn->prepare("SELECT email FROM reviews WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $message = "<p style='color:red;'>This email has already been used to submit a review.</p>";
+            } else {
+                // Insert the review
+                $stmt = $conn->prepare("INSERT INTO reviews (hero_id, favorite_hero, name, email, age, rating, recommend, difficult, gender, server, feedback) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                $stmt->bind_param("isssissssss", $hero_id, $favorite_hero, $name, $email, $age, $rating, $recommend, $difficult, $gender, $server, $feedback);
+
+                if ($stmt->execute()) {
+                    $message = "<p style='color:green;'>Thank you for your review!</p>";
+                } else {
+                    $message = "<p style='color:red;'>Error: Unable to submit your review. Please try again later.</p>";
+                }
+            }
         }
     }
 
@@ -64,7 +63,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
-
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
@@ -109,6 +107,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <?php include '../includes/header.php'; ?>
     <div id="main">
+        <!-- Display the message at the top -->
+        <?php if (!empty($message)): ?>
+            <div id="review-message"><?php echo $message; ?></div>
+        <?php endif; ?>
+
         <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
             <fieldset>
