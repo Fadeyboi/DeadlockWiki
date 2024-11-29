@@ -412,3 +412,30 @@ form {
     background-color: #333;
   }
   
+  .reviews-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+.reviews-table th, .reviews-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.reviews-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.reviews-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.rating-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}

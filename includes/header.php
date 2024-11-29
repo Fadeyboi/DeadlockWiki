@@ -27,7 +27,8 @@
         </li>
         <li><a href="./hero-statistics.php">Hero Statistics</a></li>
         <li><a href="./hero-gallery.php">Hero Gallery</a></li>
-        <li><a href="./hero-review.php">Hero Reviews</a></li>
+        <li><a href="./view-reviews.php">Hero Reviews</a></li>
+        <li><a href="./hero-review.php">Post a Review</a></li>
       </ul>
     </nav>
   </header>

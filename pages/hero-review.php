@@ -65,13 +65,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Hero Reviews</title>
-    <link rel="stylesheet" href="../CSS/styles.css" />
     <script src="../scripts/validation.js" type="text/javascript"></script>
 </head>
 
 <body>
     <main>
-        <h1>Hero Reviews</h1>
+        <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
             <fieldset>
                 <legend>Personal Information</legend>
@@ -101,21 +100,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="favorite_hero">Favorite Hero: *</label>
                 <input type="text" id="favorite_hero" name="favorite_hero" required="required" />
 
-                <label>Rating: *</label>
-                <input type="radio" id="rating1" name="rating" value="1" required="required" />
-                <label for="rating1">1</label>
 
-                <input type="radio" id="rating2" name="rating" value="2" />
-                <label for="rating2">2</label>
+                <label>Rate the hero out of 5: *</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="radio" id="rating1" name="rating" value="1" required="required" />
+                    <label for="rating1">1</label>
 
-                <input type="radio" id="rating3" name="rating" value="3" />
-                <label for="rating3">3</label>
+                    <input type="radio" id="rating2" name="rating" value="2" />
+                    <label for="rating2">2</label>
 
-                <input type="radio" id="rating4" name="rating" value="4" />
-                <label for="rating4">4</label>
+                    <input type="radio" id="rating3" name="rating" value="3" />
+                    <label for="rating3">3</label>
 
-                <input type="radio" id="rating5" name="rating" value="5" />
-                <label for="rating5">5</label>
+                    <input type="radio" id="rating4" name="rating" value="4" />
+                    <label for="rating4">4</label>
+
+                    <input type="radio" id="rating5" name="rating" value="5" />
+                    <label for="rating5">5</label>
+                </div>
+
 
                 <label>Would you recommend this hero to others?</label>
                 <input type="checkbox" id="recommend" name="recommend" value="Yes" />
