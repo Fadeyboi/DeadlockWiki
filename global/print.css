@@ -1,0 +1,29 @@
+/* Hide everything except the table and its caption */
+body * {
+    display: none !important;
+}
+
+.hero-stats-table, .hero-stats-table caption {
+    display: table !important;
+    width: 100%;
+    border: 1px solid #000;
+    color: #000;
+}
+
+.hero-stats-table caption {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.hero-stats-table th, .hero-stats-table td {
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 1em;
+}
+
+.hero-stats-table tbody tr:nth-child(even) {
+    background-color: #f4f4f4;
+}
