@@ -1,3 +1,24 @@
+<?php
+$servername = "mysql.railway.internal";
+$username = "root";
+$password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
+$dbname = "railway";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Error connecting to the database.");
+}
+
+$sql = "SELECT r.id, r.name, r.email, h.name AS hero_name, r.rating, r.recommend, r.server, r.feedback, r.difficult
+        FROM reviews r
+        LEFT JOIN heroes h ON r.hero_id = h.id
+        ORDER BY r.id DESC";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
