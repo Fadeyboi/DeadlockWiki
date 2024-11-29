@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Error connecting to the database.");
 }
 
-$sql = "SELECT r.id, r.name, r.email, h.name AS hero_name, r.rating, r.recommend, r.server, r.feedback
+$sql = "SELECT r.id, r.name, r.email, h.name AS hero_name, r.rating, r.recommend, r.server, r.feedback, r.difficult
         FROM reviews r
         LEFT JOIN heroes h ON r.hero_id = h.id
         ORDER BY r.id DESC";
@@ -40,6 +40,7 @@ $result = $stmt->get_result();
                         <th>Favorite Hero</th>
                         <th>Rating</th>
                         <th>Recommend</th>
+                        <th>Is Difficult?</th>
                         <th>Server</th>
                         <th>Feedback</th>
                     </tr>
@@ -53,6 +54,7 @@ $result = $stmt->get_result();
                             <td><?php echo htmlspecialchars($row['hero_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['rating']); ?></td>
                             <td><?php echo htmlspecialchars($row['recommend']); ?></td>
+                            <td><?php echo htmlspecialchars($row['difficult']); ?></td>
                             <td><?php echo htmlspecialchars($row['server']); ?></td>
                             <td><?php echo htmlspecialchars($row['feedback']); ?></td>
                         </tr>
@@ -67,5 +69,7 @@ $result = $stmt->get_result();
 </body>
 
 </html>
-<?php $stmt->close();
-$conn->close(); ?>
+<?php
+$stmt->close();
+$conn->close();
+?>
