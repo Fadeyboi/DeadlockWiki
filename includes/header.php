@@ -2,14 +2,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <link rel="icon" type="image/png" href="../../images/website-logo.png" />
-  <link rel="stylesheet" href="../global/styles.css" />
+  <link rel="icon" type="image/png" href="../images/website-logo.png" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <header>
     <a href="../index.php">
-      <img src="../../images/logo.png" alt="Deadlock Logo" class="logo" />
+      <img src="../images/logo.png" alt="Deadlock Logo" class="logo" />
     </a>
     <!-- Navbar at the top with a dropdown list for picking a hero -->
     <nav>
