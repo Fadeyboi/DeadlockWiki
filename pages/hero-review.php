@@ -1,7 +1,65 @@
-<!-- Name: Fahd Adel Alghamdi -->
-<!-- ID: 2135938 -->
-<!-- Section: CS1 -->
-<!-- Date: 9/22/2024 -->
+<?php
+include '../includes/header.php';
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $servername = "mysql.railway.internal";
+    $username = "root";
+    $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
+    $dbname = "railway";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("<p>Error connecting to the database: " . $conn->connect_error . "</p>");
+    }
+
+    // Escape user inputs for security
+    $name = $conn->real_escape_string($_POST['name']);
+    $email = $conn->real_escape_string($_POST['email']);
+    $age = $conn->real_escape_string($_POST['age']);
+    $favorite_hero = $conn->real_escape_string($_POST['favorite_hero']);
+    $rating = $conn->real_escape_string($_POST['rating']);
+    $recommend = isset($_POST['recommend']) ? 'Yes' : 'No';
+    $difficult = isset($_POST['difficult']) ? 'Yes' : 'No';
+    $gender = $conn->real_escape_string($_POST['gender']);
+    $server = $conn->real_escape_string($_POST['server']);
+    $feedback = $conn->real_escape_string($_POST['feedback']);
+
+    // Fetch the hero_id from the heroes table (case insensitive)
+    $hero_id_query = "SELECT id FROM heroes WHERE LOWER(name) = LOWER('$favorite_hero')";
+    $hero_id_result = $conn->query($hero_id_query);
+
+    if ($hero_id_result->num_rows > 0) {
+        $hero = $hero_id_result->fetch_assoc();
+        $hero_id = $hero['id'];
+    } else {
+        echo "<p style='color: red;'>Hero not found. Please enter a valid hero name.</p>";
+        $conn->close();
+        exit;
+    }
+
+    // Check if the email already exists in the reviews table
+    $email_check_query = "SELECT email FROM reviews WHERE email = '$email'";
+    $email_check_result = $conn->query($email_check_query);
+
+    if ($email_check_result->num_rows > 0) {
+        echo "<p style='color: red;'>This email has already been used to submit a review.</p>";
+    } else {
+        // Insert the review with hero_id
+        $insert_query = "INSERT INTO reviews (hero_id, name, email, age, favorite_hero, rating, recommend, difficult, gender, server, feedback)
+                         VALUES ('$hero_id', '$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$server', '$feedback')";
+
+        if ($conn->query($insert_query) === TRUE) {
+            echo "<p style='color: green;'>Thank you for your review!</p>";
+        } else {
+            echo "<p>Error: " . $insert_query . "<br>" . $conn->error . "</p>";
+        }
+    }
+
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
@@ -11,54 +69,9 @@
     <script src="../scripts/validation.js" type="text/javascript"></script>
 </head>
 
-<?php include '../includes/header.php'; ?>
-
 <body>
     <main>
         <h1>Hero Reviews</h1>
-
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $servername = "mysql.railway.internal";
-            $username = "root";
-            $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
-            $dbname = "railway";
-
-            $conn = new mysqli($servername, $username, $password, $dbname);
-
-            if ($conn->connect_error) {
-                die("<p>Error connecting to the database: " . $conn->connect_error . "</p>");
-            }
-            $name = $conn->real_escape_string($_POST['name']);
-            $email = $conn->real_escape_string($_POST['email']);
-            $age = $conn->real_escape_string($_POST['age']);
-            $favorite_hero = $conn->real_escape_string($_POST['favorite_hero']);
-            $rating = $conn->real_escape_string($_POST['rating']);
-            $recommend = isset($_POST['recommend']) ? 'Yes' : 'No';
-            $difficult = isset($_POST['difficult']) ? 'Yes' : 'No';
-            $gender = $conn->real_escape_string($_POST['gender']);
-            $server = $conn->real_escape_string($_POST['server']);
-            $feedback = $conn->real_escape_string($_POST['feedback']);
-
-            $sql = "SELECT email FROM reviews WHERE email = '$email'";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                echo "<p style='color: red;'>This email has already been used to submit a review.</p>";
-            } else {
-                $sql = "INSERT INTO reviews (name, email, age, favorite_hero, rating, recommend, difficult, gender, server, feedback)
-                VALUES ('$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$server', '$feedback')";
-
-                if ($conn->query($sql) === TRUE) {
-                    echo "<p style='color: green;'>Thank you for your review!</p>";
-                } else {
-                    echo "<p>Error: " . $sql . "<br>" . $conn->error . "</p>";
-                }
-            }
-            $conn->close();
-        }
-        ?>
-
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
             <fieldset>
                 <legend>Personal Information</legend>
@@ -127,7 +140,6 @@
             <input type="submit" value="Submit Review" />
         </form>
     </main>
-
     <?php include '../includes/footer.php'; ?>
 </body>
 
