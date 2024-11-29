@@ -8,22 +8,24 @@
         display: none;
     }
 
-    /* Display the table and its parent containers */
-    #main, 
-    #main .hero-stats-table, 
-    #main .hero-stats-table * {
+    /* Display the main container and the table */
+    #main,
+    #main .hero-stats-table {
         display: block;
         visibility: visible;
     }
 
-    /* Style adjustments for the table */
-    #main .hero-stats-table {
+    /* Ensure table elements have proper display properties */
+    .hero-stats-table {
+        display: table;
         width: 100%;
         border-collapse: collapse;
         margin: 0 auto;
+        border: 1px solid #000;
     }
 
-    #main .hero-stats-table caption {
+    .hero-stats-table caption {
+        display: table-caption;
         caption-side: top;
         text-align: center;
         font-weight: bold;
@@ -31,31 +33,46 @@
         margin-bottom: 10px;
     }
 
-    #main .hero-stats-table thead th {
-        background-color: #333;
-        color: #fff;
-        padding: 10px;
-        border: 1px solid #000;
+    .hero-stats-table thead {
+        display: table-header-group;
     }
 
-    #main .hero-stats-table tbody td {
+    .hero-stats-table tbody {
+        display: table-row-group;
+    }
+
+    .hero-stats-table tr {
+        display: table-row;
+    }
+
+    .hero-stats-table th,
+    .hero-stats-table td {
+        display: table-cell;
         padding: 10px;
         border: 1px solid #000;
         text-align: center;
+        font-size: 1em;
     }
 
-    #main .hero-stats-table tbody tr:nth-child(even) {
+    /* Table Header Styling */
+    .hero-stats-table th {
+        background-color: #333;
+        color: #fff;
+    }
+
+    /* Alternating Row Colors for Table */
+    .hero-stats-table tbody tr:nth-child(even) {
         background-color: #f4f4f4;
     }
 
     /* Ensure images within the table are displayed */
-    #main .hero-stats-table img {
+    .hero-stats-table img {
         max-width: 50px;
         height: auto;
     }
 
     /* Remove link styling */
-    #main .hero-stats-table a {
+    .hero-stats-table a {
         color: inherit;
         text-decoration: none;
         pointer-events: none;
