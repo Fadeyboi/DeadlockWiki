@@ -9,13 +9,15 @@ $dbname = "railway";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  die("Error connecting to the database.");
 }
 
-// Retrieve hero data
+// Fetch hero data securely
 $hero_name = 'Abrams';
-$sql = "SELECT * FROM heroes WHERE name = '$hero_name'";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT * FROM heroes WHERE name = ?");
+$stmt->bind_param("s", $hero_name);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
   $hero = $result->fetch_assoc();
@@ -24,8 +26,8 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
   <title><?php echo htmlspecialchars($hero['name']); ?></title>
@@ -88,3 +90,7 @@ if ($result->num_rows > 0) {
 </body>
 
 </html>
+<?php
+$stmt->close();
+$conn->close();
+?>

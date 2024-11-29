@@ -8,56 +8,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dbname = "railway";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
-
     if ($conn->connect_error) {
-        die("<p>Error connecting to the database: " . $conn->connect_error . "</p>");
+        die("Error connecting to the database.");
     }
 
-    // Escape user inputs for security
-    $name = $conn->real_escape_string($_POST['name']);
-    $email = $conn->real_escape_string($_POST['email']);
-    $age = $conn->real_escape_string($_POST['age']);
-    $favorite_hero = $conn->real_escape_string($_POST['favorite_hero']);
-    $rating = $conn->real_escape_string($_POST['rating']);
+    // Prepare and sanitize inputs
+    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT);
+    $favorite_hero = filter_input(INPUT_POST, 'favorite_hero', FILTER_SANITIZE_STRING);
+    $rating = filter_input(INPUT_POST, 'rating', FILTER_VALIDATE_INT);
     $recommend = isset($_POST['recommend']) ? 'Yes' : 'No';
     $difficult = isset($_POST['difficult']) ? 'Yes' : 'No';
-    $gender = $conn->real_escape_string($_POST['gender']);
-    $server = $conn->real_escape_string($_POST['server']);
-    $feedback = $conn->real_escape_string($_POST['feedback']);
+    $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
+    $server = filter_input(INPUT_POST, 'server', FILTER_SANITIZE_STRING);
+    $feedback = htmlspecialchars($_POST['feedback']);
 
-    // Fetch the hero_id from the heroes table (case insensitive)
-    $hero_id_query = "SELECT id FROM heroes WHERE LOWER(name) = LOWER('$favorite_hero')";
-    $hero_id_result = $conn->query($hero_id_query);
-
-    if ($hero_id_result->num_rows > 0) {
-        $hero = $hero_id_result->fetch_assoc();
-        $hero_id = $hero['id'];
-    } else {
-        echo "<p style='color: red;'>Hero not found. Please enter a valid hero name.</p>";
-        $conn->close();
+    if (!$name || !$email || !$age || !$favorite_hero || !$rating || !$gender || !$server || !$feedback) {
+        echo "<p style='color:red;'>Invalid input. Please check your entries and try again.</p>";
         exit;
     }
 
-    // Check if the email already exists in the reviews table
-    $email_check_query = "SELECT email FROM reviews WHERE email = '$email'";
-    $email_check_result = $conn->query($email_check_query);
+    // Use prepared statements to fetch hero_id
+    $stmt = $conn->prepare("SELECT id FROM heroes WHERE LOWER(name) = LOWER(?)");
+    $stmt->bind_param("s", $favorite_hero);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $hero_id = $result->num_rows > 0 ? $result->fetch_assoc()['id'] : null;
 
-    if ($email_check_result->num_rows > 0) {
-        echo "<p style='color: red;'>This email has already been used to submit a review.</p>";
+    if (!$hero_id) {
+        echo "<p style='color:red;'>Hero not found. Please try again.</p>";
+        exit;
+    }
+
+    // Check for duplicate email
+    $stmt = $conn->prepare("SELECT email FROM reviews WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        echo "<p style='color:red;'>This email has already been used to submit a review.</p>";
     } else {
-        // Insert the review with hero_id
-        $insert_query = "INSERT INTO reviews (hero_id, name, email, age, favorite_hero, rating, recommend, difficult, gender, server, feedback)
-                         VALUES ('$hero_id', '$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$server', '$feedback')";
+        // Insert the review
+        $stmt = $conn->prepare("INSERT INTO reviews (hero_id, name, email, age, rating, recommend, difficult, gender, server, feedback) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->bind_param("isssisssss", $hero_id, $name, $email, $age, $rating, $recommend, $difficult, $gender, $server, $feedback);
 
-        if ($conn->query($insert_query) === TRUE) {
-            echo "<p style='color: green;'>Thank you for your review!</p>";
+        if ($stmt->execute()) {
+            echo "<p style='color:green;'>Thank you for your review!</p>";
         } else {
-            echo "<p>Error: " . $insert_query . "<br>" . $conn->error . "</p>";
+            echo "<p>Error: Unable to submit your review. Please try again later.</p>";
         }
     }
 
+    $stmt->close();
     $conn->close();
 }
+
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">

@@ -9,13 +9,15 @@ $dbname = "railway";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+  die("Error connecting to the database.");
 }
 
-// Retrieve hero data
+// Fetch hero data securely
 $hero_name = 'Bebop';
-$sql = "SELECT * FROM heroes WHERE name = '$hero_name'";
-$result = $conn->query($sql);
+$stmt = $conn->prepare("SELECT * FROM heroes WHERE name = ?");
+$stmt->bind_param("s", $hero_name);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
   $hero = $result->fetch_assoc();
@@ -24,8 +26,8 @@ if ($result->num_rows > 0) {
 }
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<!DOCTYPE html>
+<html>
 
 <head>
   <title><?php echo htmlspecialchars($hero['name']); ?></title>
@@ -39,28 +41,28 @@ if ($result->num_rows > 0) {
         <h2>Abilities</h2>
         <div>
           <h3>
-            <img src="../../images/bebop-ability-1.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/abrams-ability-1.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability1_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability1_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/bebop-ability-2.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/abrams-ability-2.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability2_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability2_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/bebop-ability-3.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/abrams-ability-3.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability3_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability3_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/bebop-ability-4.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/abrams-ability-4.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability4_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability4_desc']); ?></p>
@@ -68,7 +70,7 @@ if ($result->num_rows > 0) {
       </div>
 
       <figure class="hero-wiki-figure">
-        <img class="figure-img" src="../../images/bebop-icon.png" alt="bebop Icon" />
+        <img class="figure-img" src="../../images/abrams-icon.png" alt="Abrams Icon" />
         <figcaption class="figure-caption"><?php echo htmlspecialchars($hero['name']); ?></figcaption>
       </figure>
     </div>
@@ -88,3 +90,7 @@ if ($result->num_rows > 0) {
 </body>
 
 </html>
+<?php
+$stmt->close();
+$conn->close();
+?>

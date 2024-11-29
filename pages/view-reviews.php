@@ -1,7 +1,6 @@
 <?php
 include '../includes/header.php';
 
-// Database connection
 $servername = "mysql.railway.internal";
 $username = "root";
 $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
@@ -9,19 +8,20 @@ $dbname = "railway";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Error connecting to the database.");
 }
 
-// Fetch reviews
-$sql = "SELECT r.id, r.name, r.email, r.favorite_hero, r.rating, r.feedback, r.recommend, r.server, h.name as hero_name 
+$sql = "SELECT r.id, r.name, r.email, h.name AS hero_name, r.rating, r.recommend, r.server, r.feedback
         FROM reviews r
         LEFT JOIN heroes h ON r.hero_id = h.id
         ORDER BY r.id DESC";
-$result = $conn->query($sql);
-?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$result = $stmt->get_result();
+?>
+<!DOCTYPE html>
+<html>
 
 <head>
     <title>View Reviews</title>
@@ -30,8 +30,8 @@ $result = $conn->query($sql);
 <body>
     <main>
         <h1>User Reviews</h1>
-        <?php if ($result && $result->num_rows > 0): ?>
-            <table class="reviews-table">
+        <?php if ($result->num_rows > 0): ?>
+            <table>
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -50,7 +50,7 @@ $result = $conn->query($sql);
                             <td><?php echo htmlspecialchars($row['id']); ?></td>
                             <td><?php echo htmlspecialchars($row['name']); ?></td>
                             <td><?php echo htmlspecialchars($row['email']); ?></td>
-                            <td><?php echo htmlspecialchars($row['hero_name'] ?? $row['favorite_hero']); ?></td>
+                            <td><?php echo htmlspecialchars($row['hero_name']); ?></td>
                             <td><?php echo htmlspecialchars($row['rating']); ?></td>
                             <td><?php echo htmlspecialchars($row['recommend']); ?></td>
                             <td><?php echo htmlspecialchars($row['server']); ?></td>
@@ -67,4 +67,5 @@ $result = $conn->query($sql);
 </body>
 
 </html>
-<?php $conn->close(); ?>
+<?php $stmt->close();
+$conn->close(); ?>
