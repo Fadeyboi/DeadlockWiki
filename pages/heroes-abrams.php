@@ -80,7 +80,7 @@ if ($result->num_rows > 0) {
     </div>
     <div>
       <h2>Basic Combo</h2>
-      <object width="560" height="315" data="<?php echo htmlspecialchars($hero['combo_video']); ?>" type="video/mp4">
+      <object class="video" width="560" height="315" data="<?php echo htmlspecialchars($hero['combo_video']); ?>" type="video/mp4">
         <p>Your browser does not support embedded videos. You can
           <a href="<?php echo htmlspecialchars($hero['combo_video']); ?>">download the video</a> instead.
         </p>

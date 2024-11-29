@@ -35,7 +35,7 @@ $result = $conn->query($sql);
             <caption>Hero Performance Metrics</caption>
             <thead>
                 <tr>
-                    <th>Hero Name & Icon</th>
+                    <th>Hero Name and Icon</th>
                     <th>Average Winrate</th>
                     <th>Average Pickrate</th>
                     <th>Hero Complexity</th>

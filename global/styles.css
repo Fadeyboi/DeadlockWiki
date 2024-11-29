@@ -351,7 +351,7 @@ a:hover {
     border-color: #fff; /* Border color change on hover */
 }
 
-video {
+.video {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     display: block;
