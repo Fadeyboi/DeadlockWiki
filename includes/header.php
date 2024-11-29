@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <link rel="icon" type="image/png" href="../images/website-logo.png" />
-  <link rel="stylesheet" href="./global/styles.css" />
+  <link rel="stylesheet" href="../global/styles.css" />
 </head>
 
 <body>
@@ -15,18 +15,19 @@
     <nav>
       <ul>
         <li><a href="../index.php">Home</a></li>
-        <li><a href="../services.php">Services</a></li>
+        <li><a href="./services.php">Services</a></li>
         <li class="dropdown">
           <a href="heroes.php" class="dropbtn">Heroes</a>
           <div class="dropdown-content">
-            <a href="heroes-abrams.php">Abrams</a>
-            <a href="heroes-bebop.php">Bebop</a>
-            <a href="heroes-dynamo.php">Dynamo</a>
+            <a href="./heroes-abrams.php">Abrams</a>
+            <a href="./heroes-bebop.php">Bebop</a>
+            <a href="./heroes-dynamo.php">Dynamo</a>
             <a href="#">To be continued...</a>
           </div>
         </li>
-        <li><a href="hero-statistics.php">Hero Statistics</a></li>
-        <li><a href="hero-gallery.php">Hero Gallery</a></li>
+        <li><a href="./hero-statistics.php">Hero Statistics</a></li>
+        <li><a href="./hero-gallery.php">Hero Gallery</a></li>
+        <li><a href="./hero-review.php">Hero Reviews</a></li>
       </ul>
     </nav>
   </header>

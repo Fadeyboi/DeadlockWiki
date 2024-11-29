@@ -18,7 +18,7 @@
     </script>
 </head>
 
-<?php include  '/DeadlockWiki/includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 
 <body>
     <main>
@@ -26,40 +26,40 @@
         <div id="gallery">
             <!-- Display large image -->
             <div id="large-image-container" style="text-align: center; margin-bottom: 20px;">
-                <img id="large-image" src="../../images/abrams-icon.png" alt="Default Image" style="max-width: 100%; height: auto; border-radius: 10px;" />
+                <img id="large-image" src="../images/abrams-icon.png" alt="Default Image" style="max-width: 100%; height: auto; border-radius: 10px;" />
                 <figcaption id="image-caption" style="margin-top: 10px; font-size: 1.2em; color: #555;">Abrams' Icon</figcaption>
             </div>
 
             <!-- Thumbnails -->
             <div class="thumbnails-gallery">
                 <figure class="thumbnail">
-                    <img src="../../images/abrams-icon.png" alt="Gallery Image 1" onclick="showImage('../../images/abrams-icon.png', 'Abrams\' Icon')" />
+                    <img src="../images/abrams-icon.png" alt="Gallery Image 1" onclick="showImage('../images/abrams-icon.png', 'Abrams\' Icon')" />
                 </figure>
                 <figure class="thumbnail">
-                    <img src="../../images/bebop-icon.png" alt="Gallery Image 2" onclick="showImage('../../images/bebop-icon.png', 'Bebop\'s Icon')" />
+                    <img src="../images/bebop-icon.png" alt="Gallery Image 2" onclick="showImage('../images/bebop-icon.png', 'Bebop\'s Icon')" />
                 </figure>
                 <figure class="thumbnail">
-                    <img src="../../images/dynamo-icon.png" alt="Gallery Image 3" onclick="showImage('../../images/dynamo-icon.png', 'Dynamo\'s Icon')" />
+                    <img src="../images/dynamo-icon.png" alt="Gallery Image 3" onclick="showImage('../images/dynamo-icon.png', 'Dynamo\'s Icon')" />
                 </figure>
                 <figure class="thumbnail">
-                    <img src="../../images/abrams-gallery-1.png" alt="Gallery Image 4" onclick="showImage('../../images/abrams-gallery-1.png', 'Abrams\' Ingame Model')" />
+                    <img src="../images/abrams-gallery-1.png" alt="Gallery Image 4" onclick="showImage('../images/abrams-gallery-1.png', 'Abrams\' Ingame Model')" />
                 </figure>
                 <figure class="thumbnail">
-                    <img src="../../images/bebop-gallery-1.png" alt="Gallery Image 5" onclick="showImage('../../images/bebop-gallery-1.png', 'POV Bebop just hooked you')" />
+                    <img src="../images/bebop-gallery-1.png" alt="Gallery Image 5" onclick="showImage('../images/bebop-gallery-1.png', 'POV Bebop just hooked you')" />
                 </figure>
             </div>
             <div class="thumbnails-gallery">
                 <figure class="thumbnail">
-                    <img src="../../images/dynamo-gallery-1.png" alt="Gallery Image 6" onclick="showImage('../../images/dynamo-gallery-1.png', 'How it looks like when you miss your ultimate as Dynamo')" />
+                    <img src="../images/dynamo-gallery-1.png" alt="Gallery Image 6" onclick="showImage('../images/dynamo-gallery-1.png', 'How it looks like when you miss your ultimate as Dynamo')" />
                 </figure>
                 <figure class="thumbnail">
-                    <img src="../../images/abrams-gallery-2.png" alt="Gallery Image 6" onclick="showImage('../../images/abrams-gallery-2.png', 'Full build Abrams')" />
+                    <img src="../images/abrams-gallery-2.png" alt="Gallery Image 6" onclick="showImage('../images/abrams-gallery-2.png', 'Full build Abrams')" />
                 </figure>
             </div>
 
         </div>
     </main>
-    <?php include  '/DeadlockWiki/includes/footer.php'; ?>
+    <?php include  '../includes/footer.php'; ?>
 </body>
 
 </html>

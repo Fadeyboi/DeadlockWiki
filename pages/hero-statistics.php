@@ -7,11 +7,11 @@
 
 <head>
     <title>Hero Statistics</title>
-    <link rel="stylesheet" href="/DeadlockWiki/CSS/styles.css" />
-    <link rel="stylesheet" href="/DeadlockWiki/CSS/print.css" media="print" />
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <link rel="stylesheet" href="../CSS/print.css" media="print" />
 </head>
 
-<?php include  '/DeadlockWiki/includes/header.php'; ?>
+<?php include  '../includes/header.php'; ?>
 
 <body>
     <main>
@@ -30,7 +30,7 @@
                 <tr>
                     <td>
                         <a href="heroes-abrams.php" style="text-decoration: none; color: inherit;">
-                            <img src="/DeadlockWiki/images/abrams-icon.png" alt="Abrams Icon" class="hero-icon" />
+                            <img src="../images/abrams-icon.png" alt="Abrams Icon" class="hero-icon" />
                             <span>Abrams</span>
                         </a>
                     </td>
@@ -41,7 +41,7 @@
                 <tr>
                     <td>
                         <a href="heroes-bebop.php" style="text-decoration: none; color: inherit;">
-                            <img src="/DeadlockWiki/images/bebop-icon.png" alt="Bebop Icon" class="hero-icon" />
+                            <img src="../images/bebop-icon.png" alt="Bebop Icon" class="hero-icon" />
                             <span>Bebop</span>
                         </a>
                     </td>
@@ -52,7 +52,7 @@
                 <tr>
                     <td>
                         <a href="heroes-dynamo.php" style="text-decoration: none; color: inherit;">
-                            <img src="/DeadlockWiki/images/dynamo-icon.png" alt="Dynamo Icon" class="hero-icon" />
+                            <img src="../images/dynamo-icon.png" alt="Dynamo Icon" class="hero-icon" />
                             <span>Dynamo</span>
                         </a>
                     </td>
@@ -64,7 +64,7 @@
             </tbody>
         </table>
     </main>
-    <?php include  '/DeadlockWiki/includes/footer.php'; ?>
+    <?php include  '../includes/footer.php'; ?>
 </body>
 
 </html>

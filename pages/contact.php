@@ -8,7 +8,7 @@
 <head>
   <title>Contact</title>
 </head>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 
 <body>
   <main>
@@ -24,7 +24,7 @@
       <address>Saudi Arabia, Jeddah</address>
     </section>
   </main>
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/footer.php'; ?>
+  <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>

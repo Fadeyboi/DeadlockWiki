@@ -8,7 +8,7 @@
 <head>
   <title>Dynamo</title>
 </head>
-<?php include '/DeadlockWiki/includes/header.php'; ?>
+<?php include '../includes/header.php'; ?>
 
 <body>
   <main>
@@ -87,7 +87,7 @@
       </p>
     </div>
   </main>
-  <?php include '/DeadlockWiki/includes/footer.php'; ?>
+  <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>

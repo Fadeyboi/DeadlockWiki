@@ -8,12 +8,25 @@
 <head>
   <title>Deadlock Wiki</title>
 </head>
-<?php include './includes/header.php'; ?>
+<?php include './includes/indexHeader.php'; ?>
 
 <body>
 
 
   <main>
+    <?php
+    $servername = "mysql.railway.internal";
+    $username = "root";
+    $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
+    $dbname = "railway";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+    echo "Connected successfully!";
+    ?>
     <div>
       <section>
         <h2>What is Deadlock?</h2>
@@ -87,7 +100,7 @@
       </section>
     </div>
   </main>
-  <?php include './includes/footer.php'; ?>
+  <?php include './includes/indexFooter.php'; ?>
 </body>
 
 </html>
