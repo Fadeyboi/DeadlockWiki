@@ -41,28 +41,28 @@ if ($result->num_rows > 0) {
         <h2>Abilities</h2>
         <div>
           <h3>
-            <img src="../../images/abrams-ability-1.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/dynamo-ability-1.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability1_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability1_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/abrams-ability-2.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/dynamo-ability-2.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability2_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability2_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/abrams-ability-3.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/dynamo-ability-3.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability3_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability3_desc']); ?></p>
         </div>
         <div>
           <h3>
-            <img src="../../images/abrams-ability-4.png" class="ability-icon" alt="Ability Icon" />
+            <img src="../../images/dynamo-ability-4.png" class="ability-icon" alt="Ability Icon" />
             <?php echo htmlspecialchars($hero['ability4_name']); ?>
           </h3>
           <p><?php echo htmlspecialchars($hero['ability4_desc']); ?></p>
@@ -70,7 +70,7 @@ if ($result->num_rows > 0) {
       </div>
 
       <figure class="hero-wiki-figure">
-        <img class="figure-img" src="../../images/abrams-icon.png" alt="Abrams Icon" />
+        <img class="figure-img" src="../../images/dynamo-icon.png" alt="dynamo Icon" />
         <figcaption class="figure-caption"><?php echo htmlspecialchars($hero['name']); ?></figcaption>
       </figure>
     </div>
