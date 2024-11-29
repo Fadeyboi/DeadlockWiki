@@ -8,7 +8,7 @@
 <head>
   <title>Deadlock Wiki</title>
 </head>
-<?php include '../includes/header.php'; ?>
+<?php include './includes/header.php'; ?>
 
 <body>
 
