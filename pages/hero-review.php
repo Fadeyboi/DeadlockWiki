@@ -112,8 +112,8 @@
                 <input type="checkbox" id="difficult" name="difficult" value="Yes" />
                 <label for="difficult">Yes</label>
 
-                <label for="Server">Which Server do you play on? *</label>
-                <select id="Server" name="Server" required="required">
+                <label for="server">Which Server do you play on? *</label>
+                <select id="server" name="server" required="required">
                     <option value="">--Select Server--</option>
                     <option value="NA">NA</option>
                     <option value="EU">EU</option>
