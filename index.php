@@ -14,9 +14,9 @@
   <link rel="icon" type="image/png" href="./images/website-logo.png" />
   <link rel="stylesheet" href="./global/styles.css" />
 </head>
-<?php include './includes/indexHeader.php'; ?>
 
 <body>
+  <?php include './includes/indexHeader.php'; ?>
   <main>
     <div>
       <section>
@@ -72,5 +72,7 @@
   </main>
   <?php include './includes/indexFooter.php'; ?>
 </body>
+
+
 
 </html>
