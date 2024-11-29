@@ -4,7 +4,7 @@ include '../includes/header.php';
 // Database connection
 $servername = "mysql.railway.internal";
 $username = "root";
-$password = "your_password";
+$password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
 $dbname = "railway";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
