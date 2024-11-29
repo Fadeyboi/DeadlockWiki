@@ -29,8 +29,6 @@
             if ($conn->connect_error) {
                 die("<p>Error connecting to the database: " . $conn->connect_error . "</p>");
             }
-
-            // Escape user inputs for security
             $name = $conn->real_escape_string($_POST['name']);
             $email = $conn->real_escape_string($_POST['email']);
             $age = $conn->real_escape_string($_POST['age']);
@@ -48,8 +46,8 @@
             if ($result->num_rows > 0) {
                 echo "<p style='color: red;'>This email has already been used to submit a review.</p>";
             } else {
-                $sql = "INSERT INTO reviews (name, email, age, favorite_hero, rating, recommend, difficult, gender, Server, feedback)
-                VALUES ('$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$Server', '$feedback')";
+                $sql = "INSERT INTO reviews (name, email, age, favorite_hero, rating, recommend, difficult, gender, server, feedback)
+                VALUES ('$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$server', '$feedback')";
 
                 if ($conn->query($sql) === TRUE) {
                     echo "<p style='color: green;'>Thank you for your review!</p>";
