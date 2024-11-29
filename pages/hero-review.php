@@ -11,16 +11,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare and sanitize inputs
-    $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
+    $name = htmlspecialchars($_POST['name'], ENT_QUOTES, 'UTF-8');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT);
-    $favorite_hero = filter_input(INPUT_POST, 'favorite_hero', FILTER_SANITIZE_STRING);
+    $favorite_hero = htmlspecialchars($_POST['favorite_hero'], ENT_QUOTES, 'UTF-8');
     $rating = filter_input(INPUT_POST, 'rating', FILTER_VALIDATE_INT);
     $recommend = isset($_POST['recommend']) ? 'Yes' : 'No';
     $difficult = isset($_POST['difficult']) ? 'Yes' : 'No';
-    $gender = filter_input(INPUT_POST, 'gender', FILTER_SANITIZE_STRING);
-    $server = filter_input(INPUT_POST, 'server', FILTER_SANITIZE_STRING);
-    $feedback = htmlspecialchars($_POST['feedback']);
+    $gender = htmlspecialchars($_POST['gender'], ENT_QUOTES, 'UTF-8');
+    $server = htmlspecialchars($_POST['server'], ENT_QUOTES, 'UTF-8');
+    $feedback = htmlspecialchars($_POST['feedback'], ENT_QUOTES, 'UTF-8');
 
     if (!$name || !$email || !$age || !$favorite_hero || !$rating || !$gender || !$server || !$feedback) {
         echo "<p style='color:red;'>Invalid input. Please check your entries and try again.</p>";
@@ -62,8 +62,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
     $conn->close();
 }
-
 ?>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
