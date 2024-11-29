@@ -19,35 +19,34 @@
   <div id="main">
     <h1>Heroes</h1>
     <div class="heroes-gallery">
-      <div class="heroes-figure">
-        <a href="heroes-abrams.php" style="text-decoration: none;">
+      <a href="heroes-abrams.php" style="text-decoration: none; display: block;">
+        <div class="heroes-figure">
           <img
             class="figure-img"
             src="../../images/abrams-icon.png"
             alt="Abrams Icon" />
           <div class="figure-caption">Abrams</div>
-        </a>
-      </div>
-
-      <div class="heroes-figure">
-        <a href="heroes-bebop.php" style="text-decoration: none;">
+        </div>
+      </a>
+      <a href="heroes-bebop.php" style="text-decoration: none; display: block;">
+        <div class="heroes-figure">
           <img
             class="figure-img"
             src="../../images/bebop-icon.png"
             alt="Bebop Icon" />
           <div class="figure-caption">Bebop</div>
-        </a>
-      </div>
-
-      <div class="heroes-figure">
-        <a href="heroes-dynamo.php" style="text-decoration: none;">
+        </div>
+      </a>
+      <a href="heroes-dynamo.php" style="text-decoration: none; display: block;">
+        <div class="heroes-figure">
           <img
             class="figure-img"
             src="../../images/dynamo-icon.png"
             alt="Dynamo Icon" />
           <div class="figure-caption">Dynamo</div>
-        </a>
-      </div>
+        </div>
+      </a>
+
     </div>
   </div>
   <?php include '../includes/footer.php'; ?>

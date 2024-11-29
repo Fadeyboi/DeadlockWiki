@@ -7,7 +7,7 @@
                 <span>Contact Me</span>
             </button>
         </a>
-        <a href="./resume.php" style="color: #efe0c1; text-decoration: none;">
+        <a href="./pages/resume.php" style="color: #efe0c1; text-decoration: none;">
             <button style="color: black;display: flex; align-items: center; margin: 0; border: none; cursor: pointer;">
                 <span>My Resume</span>
             </button>

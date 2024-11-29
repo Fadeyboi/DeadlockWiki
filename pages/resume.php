@@ -12,9 +12,9 @@
     <?php include '../includes/header.php'; ?>
     <div id="main">
         <h1>My Resume</h1>
-        <span>
+        <div>
             <p>You can view my resume below.</p>
-        </span>
+        </div>
         <div class="resume-container">
             <object data="../resume/resume.pdf" type="application/pdf" width="100%" height="600">
                 <p>

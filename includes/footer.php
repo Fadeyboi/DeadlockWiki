@@ -28,6 +28,5 @@
           style="width: 88px; height: 31px;" />
       </a>
     </div>
-
   </div>
 </div>
