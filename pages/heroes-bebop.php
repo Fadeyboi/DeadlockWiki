@@ -73,10 +73,10 @@ if ($result->num_rows > 0) {
         </div>
       </div>
 
-      <figure class="hero-wiki-figure">
+      <div class="hero-wiki-figure">
         <img class="figure-img" src="../../images/bebop-icon.png" alt="bebop Icon" />
-        <figcaption class="figure-caption"><?php echo htmlspecialchars($hero['name']); ?></figcaption>
-      </figure>
+        <div class="figure-caption"><?php echo htmlspecialchars($hero['name']); ?></div>
+      </div>
     </div>
     <div>
       <h2>Basic Combo</h2>

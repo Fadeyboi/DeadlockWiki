@@ -31,7 +31,7 @@
             <!-- Display large image -->
             <div id="large-image-container" style="text-align: center; margin-bottom: 20px;">
                 <img id="large-image" src="../images/abrams-icon.png" alt="Default Image" style="max-width: 100%; height: auto; border-radius: 10px;" />
-                <figcaption id="image-caption" style="margin-top: 10px; font-size: 1.2em; color: #555;">Abrams' Icon</figcaption>
+                <div id="image-caption" style="margin-top: 10px; font-size: 1.2em; color: #555;">Abrams' Icon</div>
             </div>
 
             <!-- Thumbnails -->

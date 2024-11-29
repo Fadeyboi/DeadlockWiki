@@ -19,35 +19,35 @@
   <div id="main">
     <h1>Heroes</h1>
     <div class="heroes-gallery">
-      <figure class="heroes-figure">
+      <div class="heroes-figure">
         <a href="heroes-abrams.php" style="text-decoration: none;">
           <img
             class="figure-img"
             src="../../images/abrams-icon.png"
             alt="Abrams Icon" />
-          <figcaption class="figure-caption">Abrams</figcaption>
+          <div class="figure-caption">Abrams</div>
         </a>
-      </figure>
+      </div>
 
-      <figure class="heroes-figure">
+      <div class="heroes-figure">
         <a href="heroes-bebop.php" style="text-decoration: none;">
           <img
             class="figure-img"
             src="../../images/bebop-icon.png"
             alt="Bebop Icon" />
-          <figcaption class="figure-caption">Bebop</figcaption>
+          <div class="figure-caption">Bebop</div>
         </a>
-      </figure>
+      </div>
 
-      <figure class="heroes-figure">
+      <div class="heroes-figure">
         <a href="heroes-dynamo.php" style="text-decoration: none;">
           <img
             class="figure-img"
             src="../../images/dynamo-icon.png"
             alt="Dynamo Icon" />
-          <figcaption class="figure-caption">Dynamo</figcaption>
+          <div class="figure-caption">Dynamo</div>
         </a>
-      </figure>
+      </div>
     </div>
   </div>
   <?php include '../includes/footer.php'; ?>
