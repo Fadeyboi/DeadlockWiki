@@ -8,7 +8,7 @@
 <head>
   <title>Abrams</title>
 </head>
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/header.php'; ?>
+<?php include '/DeadlockWiki/includes/header.php'; ?>
 
 <body>
   <main>
@@ -87,7 +87,7 @@
       </p>
     </div>
   </main>
-  <?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/footer.php'; ?>
+  <?php include '/DeadlockWiki/includes/footer.php'; ?>
 </body>
 
 </html>

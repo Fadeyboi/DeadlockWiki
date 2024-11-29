@@ -1,20 +1,10 @@
-<?php
-if (!defined('BASE_URL')) {
-  $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
-  $host = $_SERVER['HTTP_HOST'];
-  $path = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-  define('BASE_URL', $protocol . '://' . $host . $path);
-}
-
-?>
-
 <footer>
   <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
     <p>&copy; 2024 Fahd Alghamdi - CPCS403</p>
-    <a href="<?php echo BASE_URL; ?>/pages/contact.php" style="color: #efe0c1; text-decoration: none;">
+    <a href="/pages/contact.php" style="color: #efe0c1; text-decoration: none;">
       <p style="display: flex; align-items: center; margin: 0;">
         <img
-          src="<?php echo BASE_URL; ?>/images/contact.png"
+          src="/images/contact.png"
           style="width: 2em; margin-right: 0.5em;"
           alt="Contact Icon" />
         Contact Me

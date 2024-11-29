@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/DeadlockWiki/CSS/print.css" media="print" />
 </head>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/header.php'; ?>
+<?php include  '/DeadlockWiki/includes/header.php'; ?>
 
 <body>
     <main>
@@ -64,7 +64,7 @@
             </tbody>
         </table>
     </main>
-    <?php include $_SERVER['DOCUMENT_ROOT'] . '/DeadlockWiki/includes/footer.php'; ?>
+    <?php include  '/DeadlockWiki/includes/footer.php'; ?>
 </body>
 
 </html>
