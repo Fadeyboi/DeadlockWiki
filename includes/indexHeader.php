@@ -1,4 +1,3 @@
-<body>
     <header>
         <a href="./index.php">
             <img src="./images/logo.png" alt="Deadlock Logo" class="logo" />
@@ -24,4 +23,3 @@
             </ul>
         </nav>
     </header>
-</body>
