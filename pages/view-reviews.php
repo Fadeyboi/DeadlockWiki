@@ -1,23 +1,3 @@
-<?php
-$servername = "mysql.railway.internal";
-$username = "root";
-$password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
-$dbname = "railway";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-    die("Error connecting to the database.");
-}
-
-$sql = "SELECT r.id, r.name, r.email, h.name AS hero_name, r.rating, r.recommend, r.server, r.feedback, r.difficult
-        FROM reviews r
-        LEFT JOIN heroes h ON r.hero_id = h.id
-        ORDER BY r.id DESC";
-
-$stmt = $conn->prepare($sql);
-$stmt->execute();
-$result = $stmt->get_result();
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
@@ -28,6 +8,47 @@ $result = $stmt->get_result();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/png" href="../images/website-logo.png" />
     <link rel="stylesheet" href="../global/styles.css" />
+    <style type="text/css">
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 18px;
+            text-align: left;
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+        }
+
+        table th,
+        table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+
+        table th {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        table tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        p {
+            text-align: center;
+            color: #666;
+        }
+    </style>
 </head>
 
 <body>

@@ -76,6 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" type="image/png" href="../images/website-logo.png" />
     <link rel="stylesheet" href="../global/styles.css" />
     <script type="text/javascript">
+        // <![CDATA[
         function validateForm() {
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
@@ -98,7 +99,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             return true;
         }
+        // ]]>
     </script>
+
+
 </head>
 
 <body>
