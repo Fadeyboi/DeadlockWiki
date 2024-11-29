@@ -10,8 +10,9 @@
 
     /* Display the main container and the table */
     #main,
-    #main .hero-stats-table {
-        display: block;
+    #main .hero-stats-table,
+    #main .hero-stats-table * {
+        display: revert;
         visibility: visible;
     }
 
@@ -67,14 +68,23 @@
 
     /* Ensure images within the table are displayed */
     .hero-stats-table img {
+        display: inline-block;
         max-width: 50px;
         height: auto;
+        visibility: visible;
     }
 
-    /* Remove link styling */
+    /* Ensure hero names and links are displayed */
     .hero-stats-table a {
+        display: inline;
         color: inherit;
         text-decoration: none;
         pointer-events: none;
+        visibility: visible;
+    }
+
+    .hero-stats-table span {
+        display: inline;
+        visibility: visible;
     }
 }
