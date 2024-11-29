@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/png" href="../images/website-logo.png" />
     <link rel="stylesheet" href="../global/styles.css" />
-    <script>
+    <script type="text/javascript">
         function showImage(src, alt) {
             const largeImage = document.getElementById('large-image');
             const caption = document.getElementById('image-caption');
