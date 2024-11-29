@@ -1,6 +1,4 @@
 <?php
-include '../includes/header.php';
-
 $servername = "mysql.railway.internal";
 $username = "root";
 $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
@@ -22,9 +20,15 @@ $result = $conn->query($sql);
 <head>
     <title>Hero Statistics</title>
     <link rel="stylesheet" href="../global/print.css" media="print" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="../images/website-logo.png" />
+    <link rel="stylesheet" href="../global/styles.css" />
 </head>
 
 <body>
+    <?php include '../includes/header.php'; ?>
     <main>
         <h1>Hero Statistics</h1>
         <table class="hero-stats-table">

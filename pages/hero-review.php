@@ -1,6 +1,4 @@
 <?php
-include '../includes/header.php';
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "mysql.railway.internal";
     $username = "root";
@@ -73,9 +71,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Hero Reviews</title>
     <script src="../scripts/validation.js" type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="../images/website-logo.png" />
+    <link rel="stylesheet" href="../global/styles.css" />
 </head>
 
 <body>
+    <?php include '../includes/header.php'; ?>
     <main>
         <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">

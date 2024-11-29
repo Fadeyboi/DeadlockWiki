@@ -7,6 +7,11 @@
 
 <head>
     <title>Image Gallery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="../images/website-logo.png" />
+    <link rel="stylesheet" href="../global/styles.css" />
     <script>
         function showImage(src, alt) {
             const largeImage = document.getElementById('large-image');
@@ -18,9 +23,8 @@
     </script>
 </head>
 
-<?php include '../includes/header.php'; ?>
-
 <body>
+    <?php include '../includes/header.php'; ?>
     <main>
         <h1>Image Gallery</h1>
         <div id="gallery">

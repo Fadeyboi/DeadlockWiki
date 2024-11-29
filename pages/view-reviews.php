@@ -1,6 +1,4 @@
 <?php
-include '../includes/header.php';
-
 $servername = "mysql.railway.internal";
 $username = "root";
 $password = "sFIdChKeMCCdhWvpFEUfWMjAlzoDAgkX";
@@ -25,9 +23,15 @@ $result = $stmt->get_result();
 
 <head>
     <title>View Reviews</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="../images/website-logo.png" />
+    <link rel="stylesheet" href="../global/styles.css" />
 </head>
 
 <body>
+    <?php include '../includes/header.php'; ?>
     <main>
         <h1>User Reviews</h1>
         <?php if ($result->num_rows > 0): ?>

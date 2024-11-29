@@ -1,6 +1,4 @@
 <?php
-include '../includes/header.php';
-
 // Database connection
 $servername = "mysql.railway.internal";
 $username = "root";
@@ -31,9 +29,15 @@ if ($result->num_rows > 0) {
 
 <head>
   <title><?php echo htmlspecialchars($hero['name']); ?></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link rel="icon" type="image/png" href="../images/website-logo.png" />
+  <link rel="stylesheet" href="../global/styles.css" />
 </head>
 
 <body>
+  <?php include '../includes/header.php'; ?>
   <main>
     <div class="hero-wiki">
       <div style="display: block;">
