@@ -70,91 +70,112 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Hero Reviews</title>
-    <script src="../scripts/validation.js" type="text/javascript"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/png" href="../images/website-logo.png" />
     <link rel="stylesheet" href="../global/styles.css" />
+    <script type="text/javascript">
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var age = document.getElementById('age').value;
+            var feedback = document.getElementById('feedback').value;
+
+            if (!name || !email || !age || !feedback) {
+                alert('All fields marked with * are required.');
+                return false;
+            }
+            var emailRegex = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address.');
+                return false;
+            }
+            var ageNumber = parseInt(age, 10);
+            if (isNaN(ageNumber) || ageNumber < 1 || ageNumber > 120) {
+                alert('Please enter a valid age between 1 and 120.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 
 <body>
-    <?php include '../includes/header.php'; ?>
     <div id="main">
         <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
             <fieldset>
                 <legend>Personal Information</legend>
-
-                <label for="name">Name: *</label>
-                <input type="text" id="name" name="name" required="required" />
-
-                <label for="email">Email: *</label>
-                <input type="email" id="email" name="email" required="required" />
-
-                <label for="age">Age: *</label>
-                <input type="number" id="age" name="age" min="1" max="120" required="required" />
-
-                <label for="gender">Gender: *</label>
-                <select id="gender" name="gender" required="required">
-                    <option value="">--Select Gender--</option>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Rather Not Say</option>
-                </select>
+                <p>
+                    <label for="name">Name: *</label>
+                    <input type="text" id="name" name="name" />
+                </p>
+                <p>
+                    <label for="email">Email: *</label>
+                    <input type="text" id="email" name="email" />
+                </p>
+                <p>
+                    <label for="age">Age: *</label>
+                    <input type="text" id="age" name="age" />
+                </p>
+                <p>
+                    <label for="gender">Gender: *</label>
+                    <select id="gender" name="gender">
+                        <option value="">--Select Gender--</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Rather Not Say</option>
+                    </select>
+                </p>
             </fieldset>
-
-            <!-- Review Section -->
             <fieldset>
                 <legend>Hero Review</legend>
-
-                <label for="favorite_hero">Favorite Hero: *</label>
-                <input type="text" id="favorite_hero" name="favorite_hero" required="required" />
-
-
-                <label>Rate the hero out of 5: *</label>
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <input type="radio" id="rating1" name="rating" value="1" required="required" />
-                    <label for="rating1">1</label>
-
-                    <input type="radio" id="rating2" name="rating" value="2" />
-                    <label for="rating2">2</label>
-
-                    <input type="radio" id="rating3" name="rating" value="3" />
-                    <label for="rating3">3</label>
-
-                    <input type="radio" id="rating4" name="rating" value="4" />
-                    <label for="rating4">4</label>
-
-                    <input type="radio" id="rating5" name="rating" value="5" />
-                    <label for="rating5">5</label>
-                </div>
-
-
-                <label>Would you recommend this hero to others?</label>
-                <input type="checkbox" id="recommend" name="recommend" value="Yes" />
-                <label for="recommend">Yes</label>
-
-                <label>Is this hero difficult to play?</label>
-                <input type="checkbox" id="difficult" name="difficult" value="Yes" />
-                <label for="difficult">Yes</label>
-
-                <label for="server">Which Server do you play on? *</label>
-                <select id="server" name="server" required="required">
-                    <option value="">--Select Server--</option>
-                    <option value="NA">NA</option>
-                    <option value="EU">EU</option>
-                    <option value="Asia">Asia</option>
-                </select>
-
-                <label for="feedback">Feedback: *</label>
-                <textarea id="feedback" name="feedback" rows="5" cols="50" required="required"></textarea>
+                <p>
+                    <label for="favorite_hero">Favorite Hero: *</label>
+                    <input type="text" id="favorite_hero" name="favorite_hero" />
+                </p>
+                <p>
+                    <label>Rate the hero out of 5: *</label>
+                    <span>
+                        <input type="radio" id="rating1" name="rating" value="1" />
+                        <label for="rating1">1</label>
+                        <input type="radio" id="rating2" name="rating" value="2" />
+                        <label for="rating2">2</label>
+                        <input type="radio" id="rating3" name="rating" value="3" />
+                        <label for="rating3">3</label>
+                        <input type="radio" id="rating4" name="rating" value="4" />
+                        <label for="rating4">4</label>
+                        <input type="radio" id="rating5" name="rating" value="5" />
+                        <label for="rating5">5</label>
+                    </span>
+                </p>
+                <p>
+                    <label>Would you recommend this hero to others?</label>
+                    <input type="checkbox" id="recommend" name="recommend" value="Yes" />
+                </p>
+                <p>
+                    <label>Is this hero difficult to play?</label>
+                    <input type="checkbox" id="difficult" name="difficult" value="Yes" />
+                </p>
+                <p>
+                    <label for="server">Which Server do you play on? *</label>
+                    <select id="server" name="server">
+                        <option value="">--Select Server--</option>
+                        <option value="NA">NA</option>
+                        <option value="EU">EU</option>
+                        <option value="Asia">Asia</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="feedback">Feedback: *</label>
+                    <textarea id="feedback" name="feedback" rows="5" cols="50"></textarea>
+                </p>
             </fieldset>
-
-            <input type="submit" value="Submit Review" />
+            <p>
+                <input type="submit" value="Submit Review" />
+            </p>
         </form>
     </div>
-    <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>
