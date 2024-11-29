@@ -37,9 +37,9 @@
             $favorite_hero = $conn->real_escape_string($_POST['favorite_hero']);
             $rating = $conn->real_escape_string($_POST['rating']);
             $recommend = isset($_POST['recommend']) ? 'Yes' : 'No';
-            $newsletter = isset($_POST['newsletter']) ? 'Yes' : 'No';
+            $difficult = isset($_POST['difficult']) ? 'Yes' : 'No';
             $gender = $conn->real_escape_string($_POST['gender']);
-            $platform = $conn->real_escape_string($_POST['server']);
+            $server = $conn->real_escape_string($_POST['server']);
             $feedback = $conn->real_escape_string($_POST['feedback']);
 
             $sql = "SELECT email FROM reviews WHERE email = '$email'";
@@ -48,8 +48,8 @@
             if ($result->num_rows > 0) {
                 echo "<p style='color: red;'>This email has already been used to submit a review.</p>";
             } else {
-                $sql = "INSERT INTO reviews (name, email, age, favorite_hero, rating, recommend, newsletter, gender, Server, feedback)
-                VALUES ('$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$newsletter', '$gender', '$Server', '$feedback')";
+                $sql = "INSERT INTO reviews (name, email, age, favorite_hero, rating, recommend, difficult, gender, Server, feedback)
+                VALUES ('$name', '$email', '$age', '$favorite_hero', '$rating', '$recommend', '$difficult', '$gender', '$Server', '$feedback')";
 
                 if ($conn->query($sql) === TRUE) {
                     echo "<p style='color: green;'>Thank you for your review!</p>";
@@ -110,9 +110,9 @@
                 <input type="checkbox" id="recommend" name="recommend" value="Yes" />
                 <label for="recommend">Yes</label>
 
-                <label>Subscribe to newsletter?</label>
-                <input type="checkbox" id="newsletter" name="newsletter" value="Yes" />
-                <label for="newsletter">Yes</label>
+                <label>Is this hero difficult to play?</label>
+                <input type="checkbox" id="difficult" name="difficult" value="Yes" />
+                <label for="difficult">Yes</label>
 
                 <label for="Server">Which Server do you play on? *</label>
                 <select id="Server" name="Server" required="required">
