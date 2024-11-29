@@ -32,7 +32,7 @@ $result = $stmt->get_result();
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <main>
+    <div id="main">
         <h1>User Reviews</h1>
         <?php if ($result->num_rows > 0): ?>
             <table>
@@ -66,7 +66,7 @@ $result = $stmt->get_result();
         <?php else: ?>
             <p>No reviews found.</p>
         <?php endif; ?>
-    </main>
+    </div>
     <?php include '../includes/footer.php'; ?>
 </body>
 

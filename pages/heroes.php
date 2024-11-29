@@ -16,7 +16,7 @@
 
 <body>
   <?php include '../includes/header.php'; ?>
-  <main>
+  <div id="main">
     <h1>Heroes</h1>
     <div class="heroes-gallery">
       <figure class="heroes-figure">
@@ -49,7 +49,7 @@
         </a>
       </figure>
     </div>
-  </main>
+  </div>
   <?php include '../includes/footer.php'; ?>
 </body>
 

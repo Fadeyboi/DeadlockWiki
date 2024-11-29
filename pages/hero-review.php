@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <main>
+    <div id="main">
         <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
             <fieldset>
@@ -153,7 +153,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             <input type="submit" value="Submit Review" />
         </form>
-    </main>
+    </div>
     <?php include '../includes/footer.php'; ?>
 </body>
 

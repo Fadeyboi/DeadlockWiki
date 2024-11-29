@@ -25,7 +25,7 @@
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <main>
+    <div id="main">
         <h1>Image Gallery</h1>
         <div id="gallery">
             <!-- Display large image -->
@@ -36,33 +36,33 @@
 
             <!-- Thumbnails -->
             <div class="thumbnails-gallery">
-                <figure class="thumbnail">
+                <div class="thumbnail">
                     <img src="../images/abrams-icon.png" alt="Gallery Image 1" onclick="showImage('../images/abrams-icon.png', 'Abrams\' Icon')" />
-                </figure>
-                <figure class="thumbnail">
+                </div>
+                <div class="thumbnail">
                     <img src="../images/bebop-icon.png" alt="Gallery Image 2" onclick="showImage('../images/bebop-icon.png', 'Bebop\'s Icon')" />
-                </figure>
-                <figure class="thumbnail">
+                </div>
+                <div class="thumbnail">
                     <img src="../images/dynamo-icon.png" alt="Gallery Image 3" onclick="showImage('../images/dynamo-icon.png', 'Dynamo\'s Icon')" />
-                </figure>
-                <figure class="thumbnail">
+                </div>
+                <div class="thumbnail">
                     <img src="../images/abrams-gallery-1.png" alt="Gallery Image 4" onclick="showImage('../images/abrams-gallery-1.png', 'Abrams\' Ingame Model')" />
-                </figure>
-                <figure class="thumbnail">
+                </div>
+                <div class="thumbnail">
                     <img src="../images/bebop-gallery-1.png" alt="Gallery Image 5" onclick="showImage('../images/bebop-gallery-1.png', 'POV Bebop just hooked you')" />
-                </figure>
+                </div>
             </div>
             <div class="thumbnails-gallery">
-                <figure class="thumbnail">
+                <div class="thumbnail">
                     <img src="../images/dynamo-gallery-1.png" alt="Gallery Image 6" onclick="showImage('../images/dynamo-gallery-1.png', 'How it looks like when you miss your ultimate as Dynamo')" />
-                </figure>
-                <figure class="thumbnail">
+                </div>
+                <div class="thumbnail">
                     <img src="../images/abrams-gallery-2.png" alt="Gallery Image 6" onclick="showImage('../images/abrams-gallery-2.png', 'Full build Abrams')" />
-                </figure>
+                </div>
             </div>
 
         </div>
-    </main>
+    </div>
     <?php include  '../includes/footer.php'; ?>
 </body>
 

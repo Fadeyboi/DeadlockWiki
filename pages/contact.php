@@ -16,8 +16,8 @@
 
 <body>
   <?php include '../includes/header.php'; ?>
-  <main>
-    <section>
+  <div id="main">
+    <div class="section">
       <h2>Contact Information</h2>
       <p>
         Email:
@@ -27,8 +27,8 @@
       </p>
       <p>Phone: +966542929590</p>
       <address>Saudi Arabia, Jeddah</address>
-    </section>
-  </main>
+    </div>
+  </div>
   <?php include '../includes/footer.php'; ?>
 </body>
 

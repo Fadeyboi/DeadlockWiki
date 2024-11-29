@@ -16,8 +16,8 @@
 
 <body>
   <?php include '../includes/header.php'; ?>
-  <main>
-    <section>
+  <div id="main">
+    <div class="section">
       <h2>Services</h2>
       <p>
         This website is going to include information about the upcoming game
@@ -27,8 +27,8 @@
         It will also include some information about some of the heroes and
         their abilities.
       </p>
-    </section>
-  </main>
+    </div>
+  </div>
   <?php include '../includes/footer.php'; ?>
 </body>
 

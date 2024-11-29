@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 
 <body>
   <?php include '../includes/header.php'; ?>
-  <main>
+  <div id="main">
     <div class="hero-wiki">
       <div style="display: block;">
         <h1><?php echo htmlspecialchars($hero['name']); ?></h1>
@@ -89,7 +89,7 @@ if ($result->num_rows > 0) {
       <h2>Lore</h2>
       <p><?php echo htmlspecialchars($hero['lore']); ?></p>
     </div>
-  </main>
+  </div>
   <?php include '../includes/footer.php'; ?>
 </body>
 

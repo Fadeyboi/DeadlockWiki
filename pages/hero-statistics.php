@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 
 <body>
     <?php include '../includes/header.php'; ?>
-    <main>
+    <div id="main">
         <h1>Hero Statistics</h1>
         <table class="hero-stats-table">
             <caption>Hero Performance Metrics</caption>
@@ -64,7 +64,7 @@ $result = $conn->query($sql);
                 ?>
             </tbody>
         </table>
-    </main>
+    </div>
     <?php include '../includes/footer.php'; ?>
 </body>
 

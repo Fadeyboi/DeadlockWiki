@@ -6,7 +6,11 @@
                 <img src="./images/contact.png" style="width: 2em; margin-right: 0.5em;" alt="Contact Icon" />
                 <span>Contact Me</span>
             </button>
-
+        </a>
+        <a href="./resume.php" style="color: #efe0c1; text-decoration: none;">
+            <button style="color: black;display: flex; align-items: center; margin: 0; border: none; cursor: pointer;">
+                <span>My Resume</span>
+            </button>
         </a>
         <div style="display: flex; gap: 1em;">
             <!-- W3C Markup Validation Image -->
