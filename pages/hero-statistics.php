@@ -21,8 +21,7 @@ $result = $conn->query($sql);
 
 <head>
     <title>Hero Statistics</title>
-    <link rel="stylesheet" href="../CSS/styles.css" />
-    <link rel="stylesheet" href="../CSS/print.css" media="print" />
+    <link rel="stylesheet" href="../global/print.css" media="print" />
 </head>
 
 <body>
