@@ -1,5 +1,5 @@
 <div id="header">
-  <a href="./index.php">
+  <a href="../index.php">
     <img src="../images/logo.png" alt="Deadlock Logo" class="logo" />
   </a>
   <!-- Navbar at the top with a dropdown list for picking a hero -->

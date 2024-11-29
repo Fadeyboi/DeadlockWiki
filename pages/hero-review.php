@@ -69,9 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
 <head>
-    <title>Hero Reviews</title>
+    <title>Post a Review</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/png" href="../images/website-logo.png" />
     <link rel="stylesheet" href="../global/styles.css" />
     <script type="text/javascript">
@@ -101,6 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
+    <?php include '../includes/header.php'; ?>
     <div id="main">
         <h1>Post a Review</h1>
         <form id="reviewForm" action="hero-review.php" method="post" onsubmit="return validateForm();">
@@ -176,6 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </p>
         </form>
     </div>
+    <?php include '../includes/footer.php'; ?>
 </body>
 
 </html>
