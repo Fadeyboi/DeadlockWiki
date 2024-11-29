@@ -16,22 +16,22 @@
 
 <body>
   <?php include './includes/indexHeader.php'; ?>
-  <main>
+  <div id="main">
     <div>
-      <section>
+      <div id="section">
         <h2>What is Deadlock?</h2>
         <p>
           <em>Deadlock</em> is an upcoming action game developed and published by
-          <a href="https://www.valvesoftware.com/en/" target="_blank" rel="noopener noreferrer">Valve</a>. It combines elements of the hero shooter and MOBA genres.
+          <a href="https://www.valvesoftware.com/en/" rel="noopener noreferrer">Valve</a>. It combines elements of the hero shooter and MOBA genres.
           <em>Deadlock</em> has been in playtesting since 2023, and players with access can invite their friends using Steam's playtesting functionality.
           As of August 2024, it had reached a concurrent player count of just above 100,000. Since May 2024, numerous leaks have occurred, and a journalist was banned from the matchmaking service after writing a preview for the technology site <span class="site-name">The Verge</span>.
           Valve officially unveiled the game in August 2024.
         </p>
-      </section>
+      </div>
     </div>
 
     <div>
-      <section>
+      <div id="section">
         <h2>Gameplay</h2>
         <div class="content-wrapper">
           <p>
@@ -41,34 +41,35 @@
             Players can unlock various skills and abilities for their hero, as well as use ziplines to navigate the arena. The game currently has 21 different heroes, though it is unclear what, if any, lore or backstory about them exists beyond their names and descriptions.
             The game takes place in an alternate version of New York City called the Cursed Apple, which mixes elements of 1930s Prohibition-era storytelling and the occult.
           </p>
-          <figure>
+          <div id="figure">
             <img src="../images/map.png" alt="Map of the game" />
-            <figcaption>Image of the minimap</figcaption>
-          </figure>
+            <div id="figcaption">Image of the minimap</div>
+          </div>
         </div>
         <blockquote cite="https://www.videogamer.com/news/valve-finally-unveils-deadlock-on-steam-access-is-still-limited-to-friend-invite-via-playtesters/">
-          Valve formally announced Deadlock on August 23, 2024. Access to the game currently continues to be "friend invite only".
-          <a href="https://www.videogamer.com/news/valve-finally-unveils-deadlock-on-steam-access-is-still-limited-to-friend-invite-via-playtesters/" rel="noopener noreferrer">Source</a>
+          <p>Valve formally announced Deadlock on August 23, 2024. Access to the game currently continues to be "friend invite only".
+            <a href="https://www.videogamer.com/news/valve-finally-unveils-deadlock-on-steam-access-is-still-limited-to-friend-invite-via-playtesters/" rel="noopener noreferrer">Source</a>
+          </p>
         </blockquote>
-      </section>
+      </div>
     </div>
 
     <div>
-      <section>
+      <div id="section">
         <h2>Reception</h2>
         <div>
           <p>
             Deadlock reached a peak player base of around 41,000 in August 2024, days before the game was even announced.
             After the official announcement, the game reached yet another peak of 171,000 on September 2024.
           </p>
-          <figure>
+          <div id="figure">
             <img src="../images/reception.png" alt="Steamcharts reception graph" />
-            <figcaption>Image of the steamcharts</figcaption>
-          </figure>
+            <div id="figcaption">Image of the steamcharts</div>
+          </div>
         </div>
-      </section>
+      </div>
     </div>
-  </main>
+  </div>
   <?php include './includes/indexFooter.php'; ?>
 </body>
 

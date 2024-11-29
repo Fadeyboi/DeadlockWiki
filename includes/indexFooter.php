@@ -1,4 +1,4 @@
-<footer>
+<div id="footer">
     <div style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
         <p>&copy; 2024 Fahd Alghamdi - CPCS403</p>
         <a href="./pages/contact.php" style="color: #efe0c1; text-decoration: none;">
@@ -27,4 +27,4 @@
             </a>
         </div>
     </div>
-</footer>
+</div>

@@ -76,7 +76,7 @@ h1 {
     display: block;
 }
 
-main {
+#main {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -85,7 +85,7 @@ main {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-section {
+#section {
     padding: 20px;
     margin-bottom: 20px;
 }
@@ -127,7 +127,7 @@ a:hover {
 }
 
 
-footer {
+#footer {
     text-align: center;
     padding: 10px;
     background-color: #1a1a1a;
@@ -148,7 +148,7 @@ footer {
     flex: 1;
 }
 
-.content-wrapper figure {
+.content-wrapper #figure {
     flex-shrink: 0;
     max-width: 300px;
     text-align: center;
@@ -159,7 +159,7 @@ footer {
     height: auto;
 }
 
-figcaption {
+#figcaption {
     font-size: 14px;
     color: #666;
     margin-top: 8px;
@@ -241,7 +241,7 @@ figcaption {
         text-align: center;
     }
 
-    main {
+    #main {
         padding: 10px;
     }
 }
